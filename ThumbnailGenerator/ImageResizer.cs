@@ -13,7 +13,7 @@ namespace ThumbnailGenerator
     {
         [FunctionName("ResizeImage")]
         public static void Run(
-            [BlobTrigger("images/{name}", Connection = "AzureWebJobsStorage")] Stream inputBlob,
+            [BlobTrigger("mlsdoctors/{name}", Connection = "AzureWebJobsStorage")] Stream inputBlob,
             [Blob("thumbnail-200x200/{name}", FileAccess.Write)] Stream outputBlob,
             string name, ILogger log)
         {
@@ -31,17 +31,10 @@ namespace ThumbnailGenerator
             int width = (int)Math.Round(height * (double)image.Width / image.Height);
             image.Mutate(x => x.Resize(width, height, KnownResamplers.Lanczos3));
 
+            string fileName = Path.GetFileNameWithoutExtension(name);
+
             // Save the resized image to the output stream
-            switch (extension)
-            {
-                case ".jpg":
-                case ".jpeg":
-                    image.Save(outputBlob, new JpegEncoder());
-                    break;
-                case ".png":
-                    image.Save(outputBlob, new PngEncoder());
-                    break;
-            }
+            image.SaveAsPng(outputBlob, new PngEncoder());
         }
     }
 }
