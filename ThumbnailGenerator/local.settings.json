@@ -1,7 +1,7 @@
 {
     "IsEncrypted": false,
   "Values": {
-    "AzureWebJobsStorage": "DefaultEndpointsProtocol=https;AccountName=medilifesolutions;AccountKey=92zJrmryGdHUt8Yde46QihsXPRKx/uDQ/S4A2uKJzS8sWqPJgGCGRyagp9rYzXKCjSMmXfX+Fn9qgloIa+QP9Q==;EndpointSuffix=core.windows.net",
+    "AzureWebJobsStorage": "DefaultEndpointsProtocol=https;AccountName=medilifesolutions;AccountKey=TxzJrmryGdHUt8Yde46QihsXPRKx/uDQ/S4A2uKJzS8sWqPJgGCGRyagp9rYzXKCjSMmXfX+Fn9qgloIa+QP9Q==;EndpointSuffix=core.windows.net",
     "FUNCTIONS_WORKER_RUNTIME": "dotnet"
   }
 }
